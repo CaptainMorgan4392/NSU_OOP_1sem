@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/nikita/Desktop/lab0/csv-parser.cpp
+iostream
+-
+vector
+-
+csv-parser.h
+/Users/nikita/Desktop/lab0/csv-parser.h
+
+/Users/nikita/Desktop/lab0/csv-parser.h
+map
+-
+string
+-
+fstream
+-
+algorithm
+-
+
+/Users/nikita/Desktop/lab0/main.cpp
+csv-parser.cpp
+/Users/nikita/Desktop/lab0/csv-parser.cpp
+

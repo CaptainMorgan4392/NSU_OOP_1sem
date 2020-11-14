@@ -1,8 +1,6 @@
 #include "LinkedList.h"
 #include <stdexcept>
 
-//MEMLEAK!
-
 using std::logic_error;
 
 LinkedList::LinkedList() {

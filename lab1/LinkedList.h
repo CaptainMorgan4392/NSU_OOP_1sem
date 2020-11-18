@@ -115,8 +115,6 @@ public:
     void pop_back();
     //Удаляет первый элемент списка.
     void pop_front();
-    //Добавляет элемент в пустой список
-    void push_in_empty(const value_type &value);
     //Добавляет значение value в конец списка.
     void push_back(const value_type & value);
     //Добавляет значение value в начало списка.

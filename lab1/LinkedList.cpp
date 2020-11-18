@@ -44,6 +44,7 @@ LinkedList &LinkedList::operator=(const LinkedList &other) {
 
 LinkedList &LinkedList::operator=(LinkedList &&other) {
     clear();
+    delete tail;
 
     tail = other.tail;
     other.tail = nullptr;
@@ -138,8 +139,9 @@ int LinkedList::remove(const value_type &value) {
         if (*it == value) {
             it = erase(it);
             ++count;
+        } else {
+            ++it;
         }
-        ++it;
     }
 
     return count;
@@ -171,13 +173,6 @@ void LinkedList::pop_front() {
     --capacity;
 }
 
-void LinkedList::push_in_empty(const value_type &value) {
-    Node* newNode = new Node(value, tail, tail);
-
-    tail -> prev = newNode;
-    tail -> next = newNode;
-}
-
 void LinkedList::push_back(const value_type &value) {
     insert(end(), value);
 
@@ -191,18 +186,13 @@ void LinkedList::push_front(const value_type &value) {
 }
 
 LinkedList::iterator LinkedList::insert(LinkedList::iterator before, const value_type &value) {
-    Node* toInsert;
-    if (empty()) {
-        push_in_empty(value);
-        toInsert = begin().curInList;
-    } else {
-        Node* nodeBefore = (before - 1).curInList;
-        Node* nodeAfter = before.curInList;
+    Node* last = (before - 1).curInList;
+    Node* after = before.curInList;
 
-        toInsert = new Node(value, nodeBefore, nodeAfter);
-        nodeBefore -> next = toInsert;
-        nodeAfter -> prev = toInsert;
-    }
+    Node* toInsert = new Node(value, last, after);
+
+    last -> next = toInsert;
+    after -> prev = toInsert;
 
     return LinkedList::iterator(toInsert);
 }
@@ -231,5 +221,3 @@ bool operator==(const LinkedList &left, const LinkedList &right) {
 
     return !(it1 != left.cend() || it2 != right.cend());
 }
-
-

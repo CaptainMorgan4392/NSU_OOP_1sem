@@ -1,0 +1,3 @@
+/Users/captainmorgan4392/CLionProjects/marksAndZeros/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/captainmorgan4392/CLionProjects/marksAndZeros/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/captainmorgan4392/CLionProjects/marksAndZeros/cmake-build-debug/CMakeFiles/marksAndZeros.dir

@@ -69,7 +69,7 @@ public:
 
 class Controller {
 public:
-    bool updateRequest(std::pair <int, int> move, Model *model);
+    void updateRequest(std::pair <int, int> move, Model *model);
 };
 
 struct Context {

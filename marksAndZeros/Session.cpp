@@ -75,7 +75,7 @@ void Session::start() {
     ctx.model.addObserver(ctx.viewer);
     while (!ctx.model.isGameEnded()) {
         std::pair <int, int> move;
-        std::cout << "Now the move of " << ctx.model.getSign() << std::endl;
+        std::cout << "Now the move of " << (ctx.model.getSign() == MARKS ? 'x' : 'o') << std::endl;
 
         if (ctx.model.getSign() == MARKS) {
             if (firstOption == 1) {
@@ -89,8 +89,6 @@ void Session::start() {
             move = second -> doMove();
         }
 
-        if (!ctx.controller.updateRequest(move, &ctx.model)) {
-            continue;
-        }
+        ctx.controller.updateRequest(move, &ctx.model);
     }
 }

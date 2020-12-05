@@ -1,16 +1,14 @@
-#include "Controller.h"
+#include "Context.h"
 #include <iostream>
 
-bool Controller::updateRequest(std::pair<int, int> move, Model* model, char sign) {
+bool Controller::updateRequest(std::pair<int, int> move, Model* model) {
     try {
-        if (!model -> isFree(move.first, move.second)) {
-            throw ImpossibleMoveException();
-        }
+        model -> setTo(move.first, move.second);
     } catch (ImpossibleMoveException &ex) {
         std::cerr << ex.what() << std::endl;
         return false;
     }
 
-    model -> field[move.first][move.second] = sign;
     return true;
 }
+

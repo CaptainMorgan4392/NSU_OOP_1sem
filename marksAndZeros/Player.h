@@ -2,8 +2,7 @@
 #include <utility>
 
 class Player {
-public:
     char sign = 'x';
-
+public:
     virtual std::pair<int, int> doMove() = 0;
 };

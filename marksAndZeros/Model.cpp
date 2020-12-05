@@ -1,4 +1,5 @@
-#include "Model.h"
+#include "Context.h"
+#include "ImpossibleMoveException.h"
 
 bool Model::isFree(int first, int second) {
     return field[first][second] == ' ';
@@ -10,6 +11,22 @@ States Model::getState() {
 
 char Model::getFrom(int i, int j) {
     return field[i][j];
+}
+
+void Model::setState(States _state) {
+    state = _state;
+
+    std::cout << "Final result:" << std::endl;
+}
+
+void Model::setTo(int i, int j) {
+    if (i < 0 || i > 2 || j < 0 || j > 2 || !isFree(i, j)) {
+        throw ImpossibleMoveException();
+    }
+    field[i][j] = curMove;
+    curMove = (curMove == 'x' ? 'o' : 'x');
+
+    synchonize();
 }
 
 int checkLines(char field[3][3]) {
@@ -54,31 +71,31 @@ bool Model::isGameEnded() {
     int val;
     if ((val = checkLines(field)) >= 0) {
         if (field[val][0] == 'x') {
-            state = X_WINS;
+            setState(X_WINS);
         } else {
-            state = O_WINS;
+            setState(O_WINS);
         }
     }
 
     if ((val = checkColumns(field)) >= 0) {
         if (field[0][val] == 'x') {
-            state = X_WINS;
+            setState(X_WINS);
         } else {
-            state = O_WINS;
+            setState(O_WINS);
         }
     }
 
     if ((val = checkDiagonals(field)) == 1) {
         if (field[0][0] == 'x') {
-            state = X_WINS;
+            setState(X_WINS);
         } else {
-            state = O_WINS;
+            setState(O_WINS);
         }
     } else if (val == 2) {
         if (field[2][0] == 'x') {
-            state = X_WINS;
+            setState(X_WINS);
         } else {
-            state = O_WINS;
+            setState(O_WINS);
         }
     }
 
@@ -90,9 +107,41 @@ bool Model::isGameEnded() {
                 }
             }
         }
-
         state = DRAW;
     }
 
+    endGameIfOver();
+
     return true;
 }
+
+void Model::addObserver(Viewer viewer) {
+    observers.push_back(viewer);
+}
+
+void Model::synchonize() {
+    for (Viewer viewer : observers) {
+        viewer.display(*this);
+    }
+}
+
+Signs Model::getSign() {
+    return (curMove == 'x' ? MARKS : ZEROS);
+}
+
+void Model::endGameIfOver() {
+    switch (getState()) {
+        case IN_PROGRESS:
+            return;
+        case X_WINS:
+            std::cout << "Marks wins!" << std::endl;
+            return;
+        case O_WINS:
+            std::cout << "Zeros wins!" << std::endl;
+            return;
+        case DRAW:
+            std::cout << "It's a draw!" << std::endl;
+            return;
+    }
+}
+

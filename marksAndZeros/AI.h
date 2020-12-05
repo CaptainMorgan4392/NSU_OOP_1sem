@@ -1,6 +1,6 @@
 #pragma once
 #include "Player.h"
-#include "Model.h"
+#include "Context.h"
 
 class AI : public Player {
 protected:

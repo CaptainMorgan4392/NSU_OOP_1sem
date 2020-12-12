@@ -68,10 +68,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/nikita/Desktop/lab3
+CMAKE_SOURCE_DIR = /Users/captainmorgan4392/CLionProjects/marksAndZeros
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/nikita/Desktop/lab3/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/captainmorgan4392/CLionProjects/marksAndZeros/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -100,9 +100,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nikita/Desktop/lab3/cmake-build-debug/CMakeFiles /Users/nikita/Desktop/lab3/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/captainmorgan4392/CLionProjects/marksAndZeros/cmake-build-debug/CMakeFiles /Users/captainmorgan4392/CLionProjects/marksAndZeros/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nikita/Desktop/lab3/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/captainmorgan4392/CLionProjects/marksAndZeros/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -131,71 +131,233 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named lab3
+# Target rules for targets named marksAndZeros
 
 # Build rule for target.
-lab3: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab3
-.PHONY : lab3
+marksAndZeros: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 marksAndZeros
+.PHONY : marksAndZeros
 
 # fast build rule for target.
-lab3/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/build
-.PHONY : lab3/fast
+marksAndZeros/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/build
+.PHONY : marksAndZeros/fast
 
-bot_player.o: bot_player.cpp.o
+AI.o: AI.cpp.o
 
-.PHONY : bot_player.o
-
-# target to build an object file
-bot_player.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/bot_player.cpp.o
-.PHONY : bot_player.cpp.o
-
-bot_player.i: bot_player.cpp.i
-
-.PHONY : bot_player.i
-
-# target to preprocess a source file
-bot_player.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/bot_player.cpp.i
-.PHONY : bot_player.cpp.i
-
-bot_player.s: bot_player.cpp.s
-
-.PHONY : bot_player.s
-
-# target to generate assembly for a file
-bot_player.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/bot_player.cpp.s
-.PHONY : bot_player.cpp.s
-
-controller.o: controller.cpp.o
-
-.PHONY : controller.o
+.PHONY : AI.o
 
 # target to build an object file
-controller.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/controller.cpp.o
-.PHONY : controller.cpp.o
+AI.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/AI.cpp.o
+.PHONY : AI.cpp.o
 
-controller.i: controller.cpp.i
+AI.i: AI.cpp.i
 
-.PHONY : controller.i
+.PHONY : AI.i
 
 # target to preprocess a source file
-controller.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/controller.cpp.i
-.PHONY : controller.cpp.i
+AI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/AI.cpp.i
+.PHONY : AI.cpp.i
 
-controller.s: controller.cpp.s
+AI.s: AI.cpp.s
 
-.PHONY : controller.s
+.PHONY : AI.s
 
 # target to generate assembly for a file
-controller.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/controller.cpp.s
-.PHONY : controller.cpp.s
+AI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/AI.cpp.s
+.PHONY : AI.cpp.s
+
+Controller.o: Controller.cpp.o
+
+.PHONY : Controller.o
+
+# target to build an object file
+Controller.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/Controller.cpp.o
+.PHONY : Controller.cpp.o
+
+Controller.i: Controller.cpp.i
+
+.PHONY : Controller.i
+
+# target to preprocess a source file
+Controller.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/Controller.cpp.i
+.PHONY : Controller.cpp.i
+
+Controller.s: Controller.cpp.s
+
+.PHONY : Controller.s
+
+# target to generate assembly for a file
+Controller.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/Controller.cpp.s
+.PHONY : Controller.cpp.s
+
+HumanPlayer.o: HumanPlayer.cpp.o
+
+.PHONY : HumanPlayer.o
+
+# target to build an object file
+HumanPlayer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/HumanPlayer.cpp.o
+.PHONY : HumanPlayer.cpp.o
+
+HumanPlayer.i: HumanPlayer.cpp.i
+
+.PHONY : HumanPlayer.i
+
+# target to preprocess a source file
+HumanPlayer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/HumanPlayer.cpp.i
+.PHONY : HumanPlayer.cpp.i
+
+HumanPlayer.s: HumanPlayer.cpp.s
+
+.PHONY : HumanPlayer.s
+
+# target to generate assembly for a file
+HumanPlayer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/HumanPlayer.cpp.s
+.PHONY : HumanPlayer.cpp.s
+
+KillingAI.o: KillingAI.cpp.o
+
+.PHONY : KillingAI.o
+
+# target to build an object file
+KillingAI.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/KillingAI.cpp.o
+.PHONY : KillingAI.cpp.o
+
+KillingAI.i: KillingAI.cpp.i
+
+.PHONY : KillingAI.i
+
+# target to preprocess a source file
+KillingAI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/KillingAI.cpp.i
+.PHONY : KillingAI.cpp.i
+
+KillingAI.s: KillingAI.cpp.s
+
+.PHONY : KillingAI.s
+
+# target to generate assembly for a file
+KillingAI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/KillingAI.cpp.s
+.PHONY : KillingAI.cpp.s
+
+Model.o: Model.cpp.o
+
+.PHONY : Model.o
+
+# target to build an object file
+Model.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/Model.cpp.o
+.PHONY : Model.cpp.o
+
+Model.i: Model.cpp.i
+
+.PHONY : Model.i
+
+# target to preprocess a source file
+Model.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/Model.cpp.i
+.PHONY : Model.cpp.i
+
+Model.s: Model.cpp.s
+
+.PHONY : Model.s
+
+# target to generate assembly for a file
+Model.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/Model.cpp.s
+.PHONY : Model.cpp.s
+
+Session.o: Session.cpp.o
+
+.PHONY : Session.o
+
+# target to build an object file
+Session.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/Session.cpp.o
+.PHONY : Session.cpp.o
+
+Session.i: Session.cpp.i
+
+.PHONY : Session.i
+
+# target to preprocess a source file
+Session.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/Session.cpp.i
+.PHONY : Session.cpp.i
+
+Session.s: Session.cpp.s
+
+.PHONY : Session.s
+
+# target to generate assembly for a file
+Session.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/Session.cpp.s
+.PHONY : Session.cpp.s
+
+StupidAI.o: StupidAI.cpp.o
+
+.PHONY : StupidAI.o
+
+# target to build an object file
+StupidAI.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/StupidAI.cpp.o
+.PHONY : StupidAI.cpp.o
+
+StupidAI.i: StupidAI.cpp.i
+
+.PHONY : StupidAI.i
+
+# target to preprocess a source file
+StupidAI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/StupidAI.cpp.i
+.PHONY : StupidAI.cpp.i
+
+StupidAI.s: StupidAI.cpp.s
+
+.PHONY : StupidAI.s
+
+# target to generate assembly for a file
+StupidAI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/StupidAI.cpp.s
+.PHONY : StupidAI.cpp.s
+
+View.o: View.cpp.o
+
+.PHONY : View.o
+
+# target to build an object file
+View.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/View.cpp.o
+.PHONY : View.cpp.o
+
+View.i: View.cpp.i
+
+.PHONY : View.i
+
+# target to preprocess a source file
+View.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/View.cpp.i
+.PHONY : View.cpp.i
+
+View.s: View.cpp.s
+
+.PHONY : View.s
+
+# target to generate assembly for a file
+View.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/View.cpp.s
+.PHONY : View.cpp.s
 
 main.o: main.cpp.o
 
@@ -203,7 +365,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -212,7 +374,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -221,116 +383,8 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/main.cpp.s
 .PHONY : main.cpp.s
-
-model.o: model.cpp.o
-
-.PHONY : model.o
-
-# target to build an object file
-model.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/model.cpp.o
-.PHONY : model.cpp.o
-
-model.i: model.cpp.i
-
-.PHONY : model.i
-
-# target to preprocess a source file
-model.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/model.cpp.i
-.PHONY : model.cpp.i
-
-model.s: model.cpp.s
-
-.PHONY : model.s
-
-# target to generate assembly for a file
-model.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/model.cpp.s
-.PHONY : model.cpp.s
-
-player.o: player.cpp.o
-
-.PHONY : player.o
-
-# target to build an object file
-player.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/player.cpp.o
-.PHONY : player.cpp.o
-
-player.i: player.cpp.i
-
-.PHONY : player.i
-
-# target to preprocess a source file
-player.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/player.cpp.i
-.PHONY : player.cpp.i
-
-player.s: player.cpp.s
-
-.PHONY : player.s
-
-# target to generate assembly for a file
-player.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/player.cpp.s
-.PHONY : player.cpp.s
-
-session.o: session.cpp.o
-
-.PHONY : session.o
-
-# target to build an object file
-session.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/session.cpp.o
-.PHONY : session.cpp.o
-
-session.i: session.cpp.i
-
-.PHONY : session.i
-
-# target to preprocess a source file
-session.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/session.cpp.i
-.PHONY : session.cpp.i
-
-session.s: session.cpp.s
-
-.PHONY : session.s
-
-# target to generate assembly for a file
-session.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/session.cpp.s
-.PHONY : session.cpp.s
-
-viewer.o: viewer.cpp.o
-
-.PHONY : viewer.o
-
-# target to build an object file
-viewer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/viewer.cpp.o
-.PHONY : viewer.cpp.o
-
-viewer.i: viewer.cpp.i
-
-.PHONY : viewer.i
-
-# target to preprocess a source file
-viewer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/viewer.cpp.i
-.PHONY : viewer.cpp.i
-
-viewer.s: viewer.cpp.s
-
-.PHONY : viewer.s
-
-# target to generate assembly for a file
-viewer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/viewer.cpp.s
-.PHONY : viewer.cpp.s
 
 # Help Target
 help:
@@ -340,28 +394,34 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... lab3"
-	@echo "... bot_player.o"
-	@echo "... bot_player.i"
-	@echo "... bot_player.s"
-	@echo "... controller.o"
-	@echo "... controller.i"
-	@echo "... controller.s"
+	@echo "... marksAndZeros"
+	@echo "... AI.o"
+	@echo "... AI.i"
+	@echo "... AI.s"
+	@echo "... Controller.o"
+	@echo "... Controller.i"
+	@echo "... Controller.s"
+	@echo "... HumanPlayer.o"
+	@echo "... HumanPlayer.i"
+	@echo "... HumanPlayer.s"
+	@echo "... KillingAI.o"
+	@echo "... KillingAI.i"
+	@echo "... KillingAI.s"
+	@echo "... Model.o"
+	@echo "... Model.i"
+	@echo "... Model.s"
+	@echo "... Session.o"
+	@echo "... Session.i"
+	@echo "... Session.s"
+	@echo "... StupidAI.o"
+	@echo "... StupidAI.i"
+	@echo "... StupidAI.s"
+	@echo "... View.o"
+	@echo "... View.i"
+	@echo "... View.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... model.o"
-	@echo "... model.i"
-	@echo "... model.s"
-	@echo "... player.o"
-	@echo "... player.i"
-	@echo "... player.s"
-	@echo "... session.o"
-	@echo "... session.i"
-	@echo "... session.s"
-	@echo "... viewer.o"
-	@echo "... viewer.i"
-	@echo "... viewer.s"
 .PHONY : help
 
 

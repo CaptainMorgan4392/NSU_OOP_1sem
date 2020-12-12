@@ -1,7 +1,8 @@
-#include "session.h"
+#include <iostream>
+#include "Session.h"
 
 int main() {
-    Session curSession{};
-    curSession.startSession();
+    Session session{};
+    session.start();
     return 0;
 }

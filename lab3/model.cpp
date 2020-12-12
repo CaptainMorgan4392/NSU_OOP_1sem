@@ -1,73 +1,147 @@
-#include "session.h"
+#include "Context.h"
+#include "ImpossibleMoveException.h"
 
-void Session::Model::fillTable() {
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            field[i][j] = ' ';
-        }
-    }
+bool Model::isFree(int first, int second) {
+    return field[first][second] == ' ';
 }
 
-std::pair <char, int> checkLines(char field[3][3]) {
-    for (int i = 0; i < 3; i++) {
+States Model::getState() {
+    return state;
+}
+
+char Model::getFrom(int i, int j) {
+    return field[i][j];
+}
+
+void Model::setState(States _state) {
+    state = _state;
+
+    std::cout << "Final result:" << std::endl;
+}
+
+void Model::setTo(int i, int j) {
+    if (i < 0 || i > 2 || j < 0 || j > 2 || !isFree(i, j)) {
+        throw ImpossibleMoveException();
+    }
+    field[i][j] = curMove;
+    curMove = (curMove == 'x' ? 'o' : 'x');
+
+    synchonize();
+}
+
+int checkLines(char field[3][3]) {
+    for (int i = 0; i < 3; ++i) {
         if (field[i][0] == field[i][1] && field[i][1] == field[i][2] && field[i][0] != ' ') {
-            return {field[i][0], i + 1};
+            return i;
         }
     }
 
-    return {'\0', -1};
+    return -1;
 }
 
-std::pair <char, int> checkColumns(char field[3][3]) {
-    for (int i = 0; i < 3; i++) {
+int checkColumns(char field[3][3]) {
+    for (int i = 0; i < 3; ++i) {
         if (field[0][i] == field[1][i] && field[1][i] == field[2][i] && field[0][i] != ' ') {
-            return {field[0][i], i + 1};
+            return i;
         }
     }
 
-    return {'\0', -1};
+    return -1;
 }
 
-std::pair <char, int> checkDiagonals(char field[3][3]) {
-    if (field[0][0] == field[1][1] && field[1][1] == field[2][2] && field[0][0] != ' ') {
-        return {field[0][0], 1};
+int checkDiagonals(char field[3][3]) {
+    bool main = field[0][0] == field[1][1] &&
+                        field[1][1] == field[2][2] &&
+                        field[0][0] != ' ';
+
+    bool collateral = field[2][0] == field[1][1] &&
+                                    field[1][1] == field[0][2] &&
+                                    field[1][1] != ' ';
+
+    if (main) {
+        return 1;
+    } else if (collateral) {
+        return 2;
     }
 
-    if (field[2][0] == field[1][1] && field[1][1] == field[0][2] && field[0][2] != ' ') {
-        return {field[2][0], 2};
-    }
-
-    return {'\0', -1};
+    return -1;
 }
 
-bool Session::Model::isEndOfGame() {
-    std::pair <char, int> potentialLine = checkLines(field);
-    std::pair <char, int> potentialColumn = checkColumns(field);
-    std::pair <char, int> potentialDiagonal = checkDiagonals(field);
-
-    if (potentialLine.second > -1) {
-        std::cout << "The winner is: " << potentialLine.first;
-        return true;
-    } else if (potentialColumn.second > -1) {
-        std::cout << "The winner is: " << potentialColumn.first;
-        return true;
-    } else if (potentialDiagonal.second > -1) {
-        std::cout << "The winner is: " << potentialDiagonal.first;
-        return true;
+bool Model::isGameEnded() {
+    int val;
+    if ((val = checkLines(field)) >= 0) {
+        if (field[val][0] == 'x') {
+            setState(X_WINS);
+        } else {
+            setState(O_WINS);
+        }
     }
 
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            if (field[i][j] == ' ') {
-                return false;
+    if ((val = checkColumns(field)) >= 0) {
+        if (field[0][val] == 'x') {
+            setState(X_WINS);
+        } else {
+            setState(O_WINS);
+        }
+    }
+
+    if ((val = checkDiagonals(field)) == 1) {
+        if (field[0][0] == 'x') {
+            setState(X_WINS);
+        } else {
+            setState(O_WINS);
+        }
+    } else if (val == 2) {
+        if (field[2][0] == 'x') {
+            setState(X_WINS);
+        } else {
+            setState(O_WINS);
+        }
+    }
+
+    if (state == IN_PROGRESS) {
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                if (field[i][j] == ' ') {
+                    return false;
+                }
             }
         }
+        state = DRAW;
     }
 
-    std::cout << "It's a draw!";
+    endGameIfOver();
+
     return true;
 }
 
-void Session::Model::update(Session::CurrentMove move, char sign) {
-    field[move.line - 1][move.column - 1] = sign;
+void Model::addObserver(Viewer viewer) {
+    observers.push_back(viewer);
 }
+
+void Model::synchonize() {
+    for (Viewer viewer : observers) {
+        viewer.display(*this);
+    }
+}
+
+Signs Model::getSign() {
+    return (curMove == 'x' ? MARKS : ZEROS);
+}
+
+void Model::endGameIfOver() {
+    switch (getState()) {
+        case IN_PROGRESS:
+            return;
+        case X_WINS:
+            std::cout << "Marks wins!" << std::endl;
+            return;
+        case O_WINS:
+            std::cout << "Zeros wins!" << std::endl;
+            return;
+        case DRAW:
+            std::cout << "It's a draw!" << std::endl;
+            return;
+    }
+}
+

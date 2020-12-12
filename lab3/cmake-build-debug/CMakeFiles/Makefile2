@@ -64,16 +64,16 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/nikita/Desktop/lab3
+CMAKE_SOURCE_DIR = /Users/captainmorgan4392/CLionProjects/marksAndZeros
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/nikita/Desktop/lab3/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/captainmorgan4392/CLionProjects/marksAndZeros/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/lab3.dir/all
+all: CMakeFiles/marksAndZeros.dir/all
 
 .PHONY : all
 
@@ -83,36 +83,36 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/lab3.dir/clean
+clean: CMakeFiles/marksAndZeros.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/lab3.dir
+# Target rules for target CMakeFiles/marksAndZeros.dir
 
 # All Build rule for target.
-CMakeFiles/lab3.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/nikita/Desktop/lab3/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target lab3"
-.PHONY : CMakeFiles/lab3.dir/all
+CMakeFiles/marksAndZeros.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/captainmorgan4392/CLionProjects/marksAndZeros/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target marksAndZeros"
+.PHONY : CMakeFiles/marksAndZeros.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/lab3.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nikita/Desktop/lab3/cmake-build-debug/CMakeFiles 8
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/lab3.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nikita/Desktop/lab3/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/lab3.dir/rule
+CMakeFiles/marksAndZeros.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/captainmorgan4392/CLionProjects/marksAndZeros/cmake-build-debug/CMakeFiles 10
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/marksAndZeros.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/captainmorgan4392/CLionProjects/marksAndZeros/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/marksAndZeros.dir/rule
 
 # Convenience name for target.
-lab3: CMakeFiles/lab3.dir/rule
+marksAndZeros: CMakeFiles/marksAndZeros.dir/rule
 
-.PHONY : lab3
+.PHONY : marksAndZeros
 
 # clean rule for target.
-CMakeFiles/lab3.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/clean
-.PHONY : CMakeFiles/lab3.dir/clean
+CMakeFiles/marksAndZeros.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/marksAndZeros.dir/build.make CMakeFiles/marksAndZeros.dir/clean
+.PHONY : CMakeFiles/marksAndZeros.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

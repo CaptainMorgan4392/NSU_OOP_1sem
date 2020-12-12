@@ -1,0 +1,3 @@
+/Users/nikita/CLionProjects/lab2fix/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/nikita/CLionProjects/lab2fix/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/nikita/CLionProjects/lab2fix/cmake-build-debug/CMakeFiles/lab2.dir

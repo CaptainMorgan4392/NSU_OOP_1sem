@@ -21,9 +21,9 @@ namespace TupleReader {
         guarded += guard;
         guarded += columnSeparator;
         for (auto position = s.find(guarded); position != std::string::npos; position = s.find(guarded, position)) {
-            std::string toReplase;
-            toReplase += columnSeparator;
-            s.replace(position, 2, toReplase);
+            std::string toReplace;
+            toReplace += columnSeparator;
+            s.replace(position, 2, toReplace);
             position += 1;
         }
         return s;

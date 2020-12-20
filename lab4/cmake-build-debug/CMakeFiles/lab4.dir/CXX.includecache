@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/nikita/CLionProjects/lab4/CSVParser.h
+fstream
+-
+tuple
+-
+memory
+-
+sstream
+-
+TupleParser.h
+/Users/nikita/CLionProjects/lab4/TupleParser.h
+
+/Users/nikita/CLionProjects/lab4/TupleParser.h
+fstream
+-
+sstream
+-
+tuple
+-
+type_traits
+-
+
+/Users/nikita/CLionProjects/lab4/TuplePrinter.h
+iostream
+-
+tuple
+-
+
+/Users/nikita/CLionProjects/lab4/main.cpp
+iostream
+-
+tuple
+-
+TuplePrinter.h
+/Users/nikita/CLionProjects/lab4/TuplePrinter.h
+CSVParser.h
+/Users/nikita/CLionProjects/lab4/CSVParser.h
+

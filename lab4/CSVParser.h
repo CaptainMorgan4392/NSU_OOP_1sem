@@ -14,6 +14,7 @@ class CSVIterator : std::iterator<std::input_iterator_tag, std::tuple<Args...>> 
     friend CSVParser<Args...>;
 
     size_t iteration;
+    unsigned long offset;
     std::shared_ptr<std::tuple<Args...>> currentTuple;
     std::ifstream &input;
     bool isEnd;
@@ -30,7 +31,8 @@ public:
                                             iteration(other.iteration),
                                             lineSeparator(other.lineSeparator),
                                             columnSeparator(other.columnSeparator),
-                                            guard(other.guard) {};
+                                            guard(other.guard),
+                                            offset(other.offset){};
 
 public:
     bool operator!=(CSVIterator const &other) const {
@@ -47,16 +49,13 @@ public:
             return *this;
         }
         std::string buffer;
+        input.seekg(offset, std::ios::beg);
         std::getline(this->input, buffer, this->lineSeparator);
         this->iteration++;
         std::stringstream ss;
         ss << buffer;
-        try {
-            TupleReader::parse(ss, *currentTuple, this->columnSeparator, this->guard, this->lineSeparator);
-        } catch (std::runtime_error &e) {
-            throw std::runtime_error(e);
-        }
-
+        offset = input.tellg();
+        TupleReader::parse(ss, *currentTuple, this->columnSeparator, this->guard, this->lineSeparator);
         return *this;
     };
 
@@ -66,8 +65,9 @@ private:
                          bool END,
                          char line_sep,
                          char column_sep,
-                         char guard)
-            : input(fin), isEnd(END), iteration(skipped), lineSeparator(line_sep), columnSeparator(column_sep), guard(guard) {
+                         char guard,
+                         unsigned long offset)
+            : input(fin), isEnd(END), iteration(skipped), lineSeparator(line_sep), columnSeparator(column_sep), guard(guard), offset(offset) {
         if (!this->isEnd) {
             currentTuple = std::make_shared<std::tuple<Args...>>();
             ++*this;
@@ -87,7 +87,7 @@ public:
     CSVParser() = delete;
     explicit CSVParser(std::ifstream &fin,
                        size_t skip = 0,
-                       char line_sep= '\n',
+                       char line_sep = '\n',
                        char column_sep = ',',
                        char guard = '\"') : input(fin),
                                             skip(skip),
@@ -102,10 +102,10 @@ public:
     };
 
     CSVIterator<Args...> begin() {
-        return CSVIterator<Args...>(input, skip, false, this->lineSeparator, this->columnSeparator, this->guard);
+        return CSVIterator<Args...>(input, skip, false, this->lineSeparator, this->columnSeparator, this->guard, 0);
     };
 
     CSVIterator<Args...> end() {
-        return CSVIterator<Args...>(input, 0, true, this->lineSeparator, this->columnSeparator, this->guard);
+        return CSVIterator<Args...>(input, 0, true, this->lineSeparator, this->columnSeparator, this->guard, UINT32_MAX);
     };
 };

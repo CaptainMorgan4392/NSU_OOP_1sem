@@ -11,6 +11,9 @@ namespace TupleReader {
         T t;
         std::stringstream ss(s);
         ss >> t;
+        if (ss.fail()) {
+            throw std::runtime_error("Wrong input format!");
+        }
 
         return t;
     }
@@ -45,9 +48,6 @@ namespace TupleReader {
                     throw std::runtime_error("Wrong input format!");
                 }
             }
-            if (buffer.empty()) {
-                throw std::runtime_error("Wrong input format!");
-            }
             std::get<BEGIN>(value) = convert<typeof(std::get<BEGIN>(value))>(buffer, columnSeparator, guard);
             TupleReader<Ch, Tr, Type, BEGIN + 1, END>::read(input, value);
         }
@@ -58,9 +58,6 @@ namespace TupleReader {
         static void read(std::basic_istream<Ch, Tr> &input, Type &value, char columnSeparator = ',', char guard = '\"', char lineSeparator = '\n') {
             std::string buffer;
             std::getline(input, buffer, lineSeparator);
-            if (buffer.empty()) {
-                throw std::runtime_error("Wrong input format!");
-            }
             std::get<N>(value) = convert<typeof(std::get<N>(value))>(buffer, columnSeparator, guard);
         }
     };
@@ -78,8 +75,7 @@ namespace TupleReader {
                                                                                      guard,
                                                                                      lineSeparator);
         } catch (std::runtime_error& ex) {
-            std::cerr << "Wrong input format!";
-            exit(1);
+            std::cerr << ex.what() << std::endl;
         }
     }
 }

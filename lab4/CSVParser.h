@@ -87,12 +87,12 @@ public:
     CSVParser() = delete;
     explicit CSVParser(std::ifstream &fin,
                        size_t skip = 0,
-                       char line_delim = '\n',
-                       char column_delim = ',',
+                       char line_sep= '\n',
+                       char column_sep = ',',
                        char guard = '\"') : input(fin),
                                             skip(skip),
-                                            lineSeparator(line_delim),
-                                            columnSeparator(column_delim),
+                                            lineSeparator(line_sep),
+                                            columnSeparator(column_sep),
                                             guard(guard) {
 
         for (size_t i = 0; i < skip; ++i) {

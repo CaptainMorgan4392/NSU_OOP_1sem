@@ -97,7 +97,7 @@ public:
 
         for (size_t i = 0; i < skip; ++i) {
             std::string tmp;
-            std::getline(this->input, tmp);
+            std::getline(this->input, tmp, lineSeparator);
         }
     };
 
